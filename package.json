@@ -18,6 +18,7 @@
     "mocha": "*",
     "expect": "*",
     "mongoose": "*",
-    "restify": "*"
+    "restify": "*",
+    "generaterandom": "*"
   }
 }
