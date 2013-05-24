@@ -7,8 +7,8 @@ var userModule = require('../userModule'),
     fileModule = require('../fileModule');
 
 describe('Get a user', function() {
-  it('should get a user if valid id', function(done) {
-    userModule.getUser('1', function(err, item) {
+  it('should get a user if valid name', function(done) {
+    userModule.getUser('plCBjTGbsD', function(err, item) {
       expect(err).to.be(null); //Not sure if these are valid
       expect(item).to.be.ok();
       done();

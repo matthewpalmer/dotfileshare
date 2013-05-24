@@ -17,8 +17,15 @@ var userSchema = mongoose.Schema({
 var User = mongoose.model('User', userSchema);
 
 //API docs https://github.com/matthewpalmer/dotfileshare
-function getUser(id, callback) {
-
+function getUser(name, callback) {
+  User.find({name: name}, function(err, item) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(item);
+      callback(null, item);
+    }
+  });
 }
 
 function createUser(name, callback) {
@@ -32,7 +39,6 @@ function createUser(name, callback) {
       callback(null, newUser);
     }
   });
-
 }
 
 function updateUser(id, data, callback) {
