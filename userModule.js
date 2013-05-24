@@ -29,7 +29,7 @@ function createUser(name, callback) {
       console.log(err);
     } else {
       console.log(newUser);
-      callback(newUser);
+      callback(null, newUser);
     }
   });
 
