@@ -1,0 +1,23 @@
+{
+  "name": "dotfiles",
+  "version": "0.0.0",
+  "description": "This is the API for dotfiles. Easily share and sync your dotfiles.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/test.js"
+  },
+  "repository": "",
+  "keywords": [
+    "dotfiles",
+    "vim",
+    "api"
+  ],
+  "author": "Matthew Palmer",
+  "license": "BSD",
+  "dependencies": {
+    "mocha": "*",
+    "expect": "*",
+    "mongoose": "*",
+    "restify": "*"
+  }
+}
