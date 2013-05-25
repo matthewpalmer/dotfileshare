@@ -76,7 +76,9 @@ server.get('/file/:id', function(req, res) {
 server.post('/file', function(req, res) {
   postdata(req, res, function(err, data) {
     var file = data.file;
-    fileModule.createFile(file, function(err, item) {
+    var title = data.title;
+    var author = data.author;
+    fileModule.createFile(file, title, author, function(err, item) {
       if (err) {
         res.writeHead(404);
         res.end();

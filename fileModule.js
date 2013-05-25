@@ -35,18 +35,22 @@ function getFile(id, callback) {
 }
 
 function createFile(contentsString, title, author, callback) {
-  var contentsBuffer = new Buffer(contentsString);
-  var newFile = new File({contents: contentsBuffer, title: title,
-  author: author});
-  // console.log(newFile.contents);
-  newFile.save(function(err, newFile) {
-    if (err) {
-      console.log(err);
-    } else {
-      // console.log(newFile);
-      callback(null, newFile);
-    }
-  });
+  if (contentsString && title && author) {
+    var contentsBuffer = new Buffer(contentsString);
+    var newFile = new File({contents: contentsBuffer, title: title,
+    author: author});
+    // console.log(newFile.contents);
+    newFile.save(function(err, newFile) {
+      if (err) {
+        console.log(err);
+      } else {
+        // console.log(newFile);
+        callback(null, newFile);
+      }
+    });
+  } else {
+    callback('invalid args');
+  }
 }
 
 function updateFile(id, data, callback) {
