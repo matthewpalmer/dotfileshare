@@ -19,6 +19,7 @@
     "expect": "*",
     "mongoose": "*",
     "restify": "*",
-    "generaterandom": "*"
+    "generaterandom": "*",
+    "postdata": "*"
   }
 }
