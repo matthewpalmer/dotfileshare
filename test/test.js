@@ -71,6 +71,13 @@ describe('FILE', function() {
       done()
     });
   });
+  it('should list the most popular files', function(done) {
+    fileModule.mostPopular(function(err, item) {
+      expect(err).to.be(null);
+      expect(item).to.be.ok();
+      done();
+    });
+  });
   /*TODO: DELETE
   it('should delete a file', function(done) {
     fileModule.deletefile('1', function(err, item) {

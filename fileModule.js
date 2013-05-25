@@ -79,11 +79,17 @@ function deleteFile(id, callback) {
 }
 
 //Undocumented, untested
-function listAll(callback) {
-  console.log('here');
-  File.find({},function(err, item) {
-    console.log('aa', err, item);
-    callback(err, item);
+function mostPopular(callback) {
+  var query = File.find({});
+  query.sort({stars: 'desc'}).limit(5);
+  query.exec(function(err, item) {
+    if (err) {
+      console.log(err);
+    } else {
+      var listOfItems = item;
+      //console.log(listOfItems);
+      callback(null, listOfItems);
+    }
   });
 }
 
@@ -93,5 +99,5 @@ module.exports = {
   updateFile: updateFile,
   deleteFile: deleteFile,
   starFile: starFile,
-  listAll: listAll
+  mostPopular: mostPopular
 }

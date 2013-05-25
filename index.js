@@ -135,8 +135,8 @@ server.put('/file/:id/star', function(req, res) {
 
 
 //Undocumented & Untested
-server.get('/files/all', function(req, res) {
-  fileModule.listAll(function(err, item) {
+server.get('/files/popular', function(req, res) {
+  fileModule.mostPopular(function(err, item) {
     res.writeHead(200);
     res.write(item.toString());
     res.end();

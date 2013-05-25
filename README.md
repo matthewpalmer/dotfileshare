@@ -45,4 +45,7 @@ Delete a file
 
 Star a file
   PUT /file/:id/star
+
+Get the most popular files
+  GET /files/popular
 ```
