@@ -67,6 +67,56 @@ server.put('/user/:id', function(req, res) {
    });
 });
 
+//Files
+server.get('/file/:id', function(req, res) { 
+  fileModule.getFile(req.params.id, function(err, item) {
+    if (err) {
+      res.writeHead(404);
+      res.end();
+    } else {
+      res.writeHead(200);
+      res.write(item.toString());
+      res.write(item[0].contents.toString());
+      res.end();
+    }
+  }); 
+});
+
+server.post('/file', function(req, res) {
+  postdata(req, res, function(err, data) {
+    var file = data.file;
+    fileModule.createFile(file, function(err, item) {
+      if (err) {
+        res.writeHead(404);
+        res.end();
+      } else {
+        res.writeHead(201);
+        res.write(item.toString());
+        res.write(item.contents.toString());
+        res.end();
+      }
+    });
+  });
+});
+
+server.put('/file/:id', function(req, res) {
+  postdata(req, res, function(err, data) {
+    //console.log(req);
+    var toAppend = data.file;
+    console.log('to append is', data.file);
+    fileModule.updateFile(req.params.id, new Buffer(toAppend), function(err, item) {
+      if (err) {
+        res.writeHead(404);
+        res.end();
+      } else {
+        res.writeHead(202);
+        res.write(item.toString());
+        res.write(item.contents.toString());
+        res.end();
+      }
+    });
+   });
+});
 
 server.listen(3000, function() {
   console.log('Server listening on port 3000');
