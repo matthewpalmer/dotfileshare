@@ -9,18 +9,4 @@ curl -u myusername:mypassword --data "file=thisissomenewdata" -k -X PUT https://
 
 
 
-curl -u myusername:mypassword --data "file=<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="styles.css">
-
-<title>Title of the document</title>
-<style>
-</style>
-</head>
-
-<body>
-
-</body>
-
-</html>" -k -X POST https://localhost:3000/file
+curl -u myusername:mypassword --data "file=<!DOCTYPE html><html><head>Title of he document</title><style></style></head><body></body></html>" -k -X POST https://localhost:3000/file
