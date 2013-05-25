@@ -3,12 +3,12 @@ Easily share and sync your dotfiles. There are two main resources, `user`s and `
 
 ### Files
 
-
+```javascript
 Get a file
-  __GET__`/file/:id`
+  GET /file/:id
 
 // Requires a percentage serialized string to be passed in as the value for 'file'. Use `jape` npm module or querystring.stringify.
-// E.G. `curl -u myusername:mypassword --data "file=value1" -k -X POST http://localhost:3000/file`
+// E.G. `curl "file=value1" -X POST http://localhost:3000/file`
 Create a new file
   POST /file
 
@@ -24,9 +24,10 @@ Star a file
 
 Get the most popular files
   GET /files/popular
-
+```
 
 ### User
+Users aren't really there for anything, they might have a role in the future.
 
 ```javascript
 Get a user
