@@ -1,8 +1,6 @@
 # Dotfiles
 Easily share and sync your dotfiles. There are two main resources, `user`s and `file`s. `file` is a specific dotfile, `user` is a user with a list of `file`s attached to their name.
 
-```
-
 ### Files
 
 
