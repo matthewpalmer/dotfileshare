@@ -42,4 +42,7 @@ Update a file
 
 Delete a file
   DELETE /file/:id
+
+Star a file
+  PUT /file/:id/star
 ```

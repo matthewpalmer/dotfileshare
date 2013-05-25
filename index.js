@@ -104,7 +104,8 @@ server.put('/file/:id', function(req, res) {
     //console.log(req);
     var toAppend = data.file;
     console.log('to append is', data.file);
-    fileModule.updateFile(req.params.id, new Buffer(toAppend), function(err, item) {
+    fileModule.updateFile(req.params.id, new Buffer(toAppend),
+      function(err, item) {
       if (err) {
         res.writeHead(404);
         res.end();
@@ -116,6 +117,20 @@ server.put('/file/:id', function(req, res) {
       }
     });
    });
+});
+
+server.put('/file/:id/star', function(req, res) {
+  fileModule.starFile(req.params.id, function(err, item) {
+    if (err) {
+      console.log(err);
+      res.writeHead(404);
+      res.end();
+    } else {
+      res.writeHead(200);
+      res.write(item.toString());
+      res.end();
+    }
+  });
 });
 
 server.listen(3000, function() {

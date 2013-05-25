@@ -14,7 +14,8 @@ db.once('open', function callback() {
 
 //Define our schema
 var fileSchema = mongoose.Schema({
-  contents: Buffer
+  contents: Buffer,
+  stars: {type: Number, default: 0}
 });
 
 var File = mongoose.model('File', fileSchema);
@@ -57,6 +58,22 @@ function updateFile(id, data, callback) {
     });
 }
 
+function starFile(id, callback) {
+  File.findById(id, function(err, item) {
+    var numStars = item.stars;
+    numStars = numStars + 1;
+    console.log('numstars is ', numStars);
+    File.update({_id: id}, {stars: numStars}, function(err, item) {
+      if (err) {
+        console.log(err);
+      } else {
+        callback(null, numStars);
+      }
+    });
+  });
+
+}
+
 function deleteFile(id, callback) {
 
 }
@@ -66,5 +83,6 @@ module.exports = {
   getFile: getFile,
   createFile: createFile,
   updateFile: updateFile,
-  deleteFile: deleteFile
+  deleteFile: deleteFile,
+  starFile: starFile
 }

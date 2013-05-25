@@ -64,6 +64,13 @@ describe('FILE', function() {
         done();
       });
   });
+  it('should star a file', function(done) {
+    fileModule.starFile('51a00f4d2e254cc01e000002', function(err, item) {
+      expect(err).to.be(null);
+      expect(item).to.be.ok();
+      done()
+    });
+  });
   /*TODO: DELETE
   it('should delete a file', function(done) {
     fileModule.deletefile('1', function(err, item) {
