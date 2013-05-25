@@ -1,3 +1,4 @@
 curl -u myusername:mypassword --data "param1=value1" -k -X PUT https://localhost:3000/user/123
 curl -u myusername:mypassword -k https://localhost:3000/user/519ffc7ac08508620c000001
 curl --data "name=matthewpalmer" -k -X POST https://localhost:3000/user/
+curl -u myusername:mypassword --data "appendFile=thisIsANewFile" -k -X PUT https://localhost:3000/user/

@@ -20,6 +20,6 @@
     "mongoose": "*",
     "restify": "*",
     "generaterandom": "*",
-    "postdata": "*"
+    "postdata": "0.0.2"
   }
 }

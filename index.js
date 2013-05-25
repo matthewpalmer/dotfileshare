@@ -49,6 +49,25 @@ server.post('/user', function(req, res) {
     });
   });
 });
+
+server.put('/user/:id', function(req, res) {
+  postdata(req, res, function(err, data) {
+    console.log(req);
+    var toAppend = data.appendFile;
+    userModule.updateUser(req.params.id, toAppend, function(err, item) {
+      if (err) {
+        res.writeHead(404);
+        res.end();
+      } else {
+        res.writeHead(202);
+        res.write(item.toString());
+        res.end();
+      }
+    });
+   });
+});
+
+
 server.listen(3000, function() {
   console.log('Server listening on port 3000');
 });
