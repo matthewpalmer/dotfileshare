@@ -6,3 +6,21 @@ curl -u myusername:mypassword --data "appendFile=thisIsANewFile" -k -X PUT https
 curl -u myusername:mypassword -k https://localhost:3000/file/51a012121e351fa020000002
 curl -u myusername:mypassword --data "file=value1" -k -X POST https://localhost:3000/file
 curl -u myusername:mypassword --data "file=thisissomenewdata" -k -X PUT https://localhost:3000/file/51a0148c5edc7e8623000001
+
+
+
+curl -u myusername:mypassword --data "file=<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+
+<title>Title of the document</title>
+<style>
+</style>
+</head>
+
+<body>
+
+</body>
+
+</html>" -k -X POST https://localhost:3000/file

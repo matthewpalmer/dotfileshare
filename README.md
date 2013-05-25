@@ -31,7 +31,7 @@ Delete a user
 Get a file
   GET /file/:id
 
-// Requires a percentage serialized string to be passed in as the value for 'file'. Use `jape` npm module or JSON.serialize().
+// Requires a percentage serialized string to be passed in as the value for 'file'. Use `jape` npm module or querystring.stringify.
 // E.G. `curl -u myusername:mypassword --data "file=value1" -k -X POST https://localhost:3000/file`
 Create a new file
   POST /file
