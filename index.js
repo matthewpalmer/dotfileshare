@@ -133,6 +133,16 @@ server.put('/file/:id/star', function(req, res) {
   });
 });
 
+
+//Undocumented & Untested
+server.get('/files/all', function(req, res) {
+  fileModule.listAll(function(err, item) {
+    res.writeHead(200);
+    res.write(item.toString());
+    res.end();
+  });
+});
+
 server.listen(3000, function() {
   console.log('Server listening on port 3000');
 });

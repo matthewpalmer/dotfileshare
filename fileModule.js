@@ -78,11 +78,20 @@ function deleteFile(id, callback) {
 
 }
 
+//Undocumented, untested
+function listAll(callback) {
+  console.log('here');
+  File.find({},function(err, item) {
+    console.log('aa', err, item);
+    callback(err, item);
+  });
+}
 
 module.exports = {
   getFile: getFile,
   createFile: createFile,
   updateFile: updateFile,
   deleteFile: deleteFile,
-  starFile: starFile
+  starFile: starFile,
+  listAll: listAll
 }
