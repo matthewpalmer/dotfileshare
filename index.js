@@ -1,8 +1,3 @@
-//USE HTTPS 
-var fs = require('fs');
-var privateKey = fs.readFileSync('privatekey.pem').toString();
-var certificate = fs.readFileSync('certificate.pem').toString();
-
 var restify = require('restify'),
     postdata = require('postdata');
 
@@ -10,11 +5,7 @@ var restify = require('restify'),
 var userModule = require('./userModule'),
     fileModule = require('./fileModule');
 
-var server = restify.createServer({
-  certificate: certificate,
-  key: privateKey,
-  name: 'MyApp'
-});
+var server = restify.createServer();
 
 server.get('/', function(req, res) {
   res.end('Please see the API docs.');

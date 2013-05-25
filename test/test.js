@@ -49,9 +49,11 @@ describe('FILE', function() {
     });
   });
   it('should create a new file', function(done) {
-    fileModule.createFile(generaterandom.string(10), function(err, item) {
+    fileModule.createFile(generaterandom.string(10), 
+      generaterandom.string(5),
+      generaterandom.string(8),function(err, item) {
       expect(err).to.be(null);
-      console.log(item.contents.toString());
+      console.log(item._id.toString());
       expect(item).to.be.ok();
       done();
     });

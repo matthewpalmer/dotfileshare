@@ -15,7 +15,9 @@ db.once('open', function callback() {
 //Define our schema
 var fileSchema = mongoose.Schema({
   contents: Buffer,
-  stars: {type: Number, default: 0}
+  stars: {type: Number, default: 0},
+  title: String,
+  author: String
 });
 
 var File = mongoose.model('File', fileSchema);
@@ -32,9 +34,10 @@ function getFile(id, callback) {
   });
 }
 
-function createFile(contentsString, callback) {
+function createFile(contentsString, title, author, callback) {
   var contentsBuffer = new Buffer(contentsString);
-  var newFile = new File({contents: contentsBuffer});
+  var newFile = new File({contents: contentsBuffer, title: title,
+  author: author});
   // console.log(newFile.contents);
   newFile.save(function(err, newFile) {
     if (err) {
