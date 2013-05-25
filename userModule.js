@@ -11,14 +11,15 @@ db.once('open', function callback() {
 
 //Define our schema
 var userSchema = mongoose.Schema({
-  name: String
+  name: String,
+  associatedFiles: Array
 });
 
 var User = mongoose.model('User', userSchema);
 
 //API docs https://github.com/matthewpalmer/dotfileshare
-function getUser(name, callback) {
-  User.find({name: name}, function(err, item) {
+function getUser(id, callback) {
+  User.find({_id: id}, function(err, item) {
     if (err) {
       console.log(err);
     } else {
@@ -42,7 +43,15 @@ function createUser(name, callback) {
 }
 
 function updateUser(id, data, callback) {
-
+  User.findOneAndUpdate({_id: id}, {associatedFiles: data},
+    function(err, item) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(item);
+        callback(null, item);
+      }
+    });
 }
 
 function deleteUser(id, callback) {
