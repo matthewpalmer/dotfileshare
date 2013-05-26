@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 //Maybe the db stuff should go in its own module?
 //Do our db init
-mongoose.connect('mongodb://nodejitsu:4dee563a276d93e726cf1d3de9445172@alex.mongohq.com:10016/nodejitsudb5195828548');
+mongoose.connect('mongodb://localhost/dotfileshare');
 var db = mongoose.connection;
 db.on('err', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {

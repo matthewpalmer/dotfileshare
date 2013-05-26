@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/basil.css">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+<script src='/scraper.js'></script>
+<script src='/mustache.js'></script>
+
+<title>Dotfiles - Share Your Dotfiles</title>
+<script type="text/javascript">
+  var analytics=analytics||[];(function(){var e=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group"],t=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)analytics[e[n]]=t(e[n])})(),analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)};
+  analytics.load("5dbb1l2vii");
+</script>
+</head>
+
+<body>
+<div class = 'container basil'>
+  <a href="/" class='headLink'>
+  <div class = 'header'>
+    <h1>Dotfiles</h1>
+    <p class = 'hUnderling'>Share Your Dotfiles</p>
+    
+  </div>
+  </a>
+  <form id="fileform" name='filesh' method='POST' action='/file'>
+  
+  <input type="text" name="title" placeholder="File Name">
+  <br/>
+  <input type="text" name="author" placeholder="Your Name">
+  
+  
+<br>
+<textarea placeholder="Content" rows="20" cols="50" name="contents" form="fileform"></textarea>
+<input type="submit">
+</form>
+  <div class = 'footer'>
+    <small>Created by @_matthewpalmer.</small>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+analytics.track('Upload loaded', {
+
+});
+/*
+function newFile() {
+  var data = {
+    author: 'matt',
+    title: 'ttt',
+    contents: 'condededed'
+  }
+  poster('/file', 'POST', data, function(i, e) {
+    console.log(i, e);
+  });
+}
+*/
+</script>
+</body>
+</html>

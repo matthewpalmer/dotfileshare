@@ -10,3 +10,9 @@ curl -u myusername:mypassword --data "file=thisissomenewdata" -k -X PUT https://
 
 
 curl -u myusername:mypassword --data "file=<!DOCTYPE html><html><head>Title of he document</title><style></style></head><body></body></html>" -k -X POST https://localhost:3000/file
+
+curl --data "file=value1" -X POST http://dotfileshare.herokuapp.com/file
+
+curl --data "file=value1&title=first&author=matt" -X POST http://dotfileshare.herokuapp.com/file
+
+curl -X PUT http://dotfileshare.herokuapp.com/file/51a03e548392980200000001/star

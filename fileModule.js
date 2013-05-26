@@ -14,7 +14,7 @@ db.once('open', function callback() {
 
 //Define our schema
 var fileSchema = mongoose.Schema({
-  contents: Buffer,
+  contents: String,
   stars: {type: Number, default: 0},
   title: String,
   author: String
@@ -36,8 +36,7 @@ function getFile(id, callback) {
 
 function createFile(contentsString, title, author, callback) {
   if (contentsString && title && author) {
-    var contentsBuffer = new Buffer(contentsString);
-    var newFile = new File({contents: contentsBuffer, title: title,
+    var newFile = new File({contents: contentsString, title: title,
     author: author});
     // console.log(newFile.contents);
     newFile.save(function(err, newFile) {
@@ -88,7 +87,7 @@ function deleteFile(id, callback) {
 //Undocumented, untested
 function mostPopular(callback) {
   var query = File.find({});
-  query.sort({stars: 'desc'}).limit(5);
+  query.sort({stars: 'desc'}).limit(50);
   query.exec(function(err, item) {
     if (err) {
       console.log(err);
