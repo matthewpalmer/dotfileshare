@@ -87,7 +87,7 @@ function deleteFile(id, callback) {
 //Undocumented, untested
 function mostPopular(callback) {
   var query = File.find({});
-  query.sort({stars: 'desc'}).limit(50);
+  query.sort({stars: 'desc'}).limit(8);
   query.exec(function(err, item) {
     if (err) {
       console.log(err);
